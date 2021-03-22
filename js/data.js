@@ -36,7 +36,7 @@ function addTodo(item) {
 
 let lists = []
 document.addEventListener('keyup', function(event){
-	if(event.keyCode == 13){
+	if(event.key == "Enter"){
 		let todo = {
 			name: input.value,
 			id:  lists.length,
