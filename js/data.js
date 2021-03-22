@@ -6,7 +6,7 @@ function addTodo(item) {
 	const text = `<li class="item">
 				<i class="co fa fa-circle-thin" job="complete" id="check-${item.id}" style="color: blue; font-size: 1.5em"></i>
 				<p class="text" style="margin-right: 11rem; margin-bottom: 5px">${item.name}</p>
-				<i class="de fa fa-trash-o" job="delete" id="${item.id}"></i>
+				<i class="de fa fa-trash-o" job="delete" id="${item.id}" style="color: blue"></i>
 			</li>`;
 	const position = "beforeend";
 	ul.insertAdjacentHTML(position, text);
