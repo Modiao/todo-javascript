@@ -59,3 +59,7 @@ li {
   color: blue;
   opacity: 1; /* Firefox */
 }
+
+.line-through-todo{
+	text-decoration: line-through;
+}

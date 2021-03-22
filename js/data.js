@@ -4,7 +4,7 @@ const input = document.getElementById("item");
 
 function addTodo(item) {
 	const text = `<li class="item">
-				<i class="co fa fa-circle-thin" job="complete"></i>
+				<i class="co fa fa-circle-thin" job="complete" id="check-${item.id}"></i>
 				<p class="text" style="margin-right: 11rem; margin-bottom: 5px">${item.name}</p>
 				<i class="de fa fa-trash-o" job="delete" id="${item.id}"></i>
 			</li>`;
@@ -13,35 +13,14 @@ function addTodo(item) {
 };
 
 
-// let lists = [
-// 	{
-// 		name: "abdou",
-// 		id:  0,
-// 		done:  true,
-// 		trash: false
-// 	},
-// 	{
-// 		name: "fatou",
-// 		id:  1,
-// 		done:  true,
-// 		trash: false
-// 	},
-// 	{
-// 		name: "diop",
-// 		id:  2,
-// 		done:  true,
-// 		trash: false
-// 	}
-// ];
-
 let lists = []
 document.addEventListener('keyup', function(event){
 	if(event.key == "Enter"){
 		let todo = {
 			name: input.value,
 			id:  lists.length,
-			done:  false,
-			trash: false
+			done:  true,
+			trash: true
 		}
 		if(input.value){
 			lists.push(todo);
@@ -63,7 +42,20 @@ function removeTodo(element){
 }
 
 function updateTodo(element){
-	
+	const index = parseInt(element.id.split('-'[1]));
+	let nextSibling = element.nextElementSibling;
+	console.log(nextSibling);
+	if(element.classList.contains('fa-circle-thin')){
+		element.classList.remove('fa-circle-thin');
+		element.classList.add('fa-check-circle');
+		nextSibling.classList.add('line-through-todo');
+	} else if(element.classList.contains('fa-check-circle')){
+		element.classList.remove('fa-check-circle');
+		nextSibling.classList.remove('line-through-todo');
+		element.classList.add('fa-circle-thin');
+	}
+	lists[index].done = lists[index].done ? false : true;
+
 }
 
 ul.addEventListener('click', function(event){
@@ -74,8 +66,9 @@ ul.addEventListener('click', function(event){
 		lists = lists.filter(item => item.id !== parseInt(element.id));
 		console.log(lists);
 	}else if (elementJob=='complete'){
-
+		updateTodo(element)
 	}
+	
 });
 
 
