@@ -3,8 +3,7 @@ const input = document.getElementById("item");
 const date = document.getElementById('date');
 
 current_date = new Date()
-date.innerHTML = current_date.toDateString()
-console.log(typeof current_date);
+date.innerHTML = current_date.toGMTString().toString().substr(0,16);
 
 
 function addTodo(item) {
