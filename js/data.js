@@ -1,5 +1,10 @@
 const ul = document.getElementById("list");
 const input = document.getElementById("item");
+const date = document.getElementById('date');
+
+current_date = new Date()
+date.innerHTML = current_date.toDateString()
+console.log(typeof current_date);
 
 
 function addTodo(item) {

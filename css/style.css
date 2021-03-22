@@ -63,3 +63,8 @@ li {
 .line-through-todo{
 	text-decoration: line-through;
 }
+
+#date{
+	color: red;
+	padding-top: 170px;
+}
