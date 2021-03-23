@@ -1,6 +1,7 @@
 const ul = document.getElementById("list");
 const input = document.getElementById("item");
 const date = document.getElementById('date');
+const clear = document.getElementById('clear');
 
 current_date = new Date()
 date.innerHTML = current_date.toGMTString().toString().substr(0,16);
@@ -46,7 +47,7 @@ function removeTodo(element){
 }
 
 function updateTodo(element){
-	const index = parseInt(element.id.split('-'[1]));
+	const index = parseInt(element.id.split('-')[1]);
 	let nextSibling = element.nextElementSibling;
 	console.log(nextSibling);
 	if(element.classList.contains('fa-circle-thin')){
@@ -73,6 +74,10 @@ ul.addEventListener('click', function(event){
 		updateTodo(element)
 	}
 	
+});
+
+clear.addEventListener('click', function(event){
+	window.location.reload();
 });
 
 
